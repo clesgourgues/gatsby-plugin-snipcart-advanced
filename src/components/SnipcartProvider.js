@@ -8,7 +8,7 @@ const SnipcartProvider = (props) => {
   const [state, dispatch] = useStore();
   const { defaultLang, locales } = props;
   const changeLanguage = (lang, locale) => {
-    const lng = locales[locale] || {};
+    const lng = locale ? locales[defaultLang] : locales[locale];
     window.Snipcart.api.session.setLanguage(lang, lng);
   };
   React.useEffect(() => {
